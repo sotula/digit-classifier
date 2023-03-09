@@ -15,7 +15,7 @@ import os
 
 class RandomClassifier(DigitClassificationInterface):
     """
-    Merchant xgboost classifier
+    Random digit classifier
     """
     model_type = 'rand'
 
@@ -72,7 +72,6 @@ class RandomClassifier(DigitClassificationInterface):
 
 
 
-    # @staticmethod
     def __prepare_data(self, X: Union[List[List[float]], List[float], np.array]) -> np.array:
         """
         Method for checking correct inputted data
@@ -103,10 +102,11 @@ class RandomClassifier(DigitClassificationInterface):
         """
 
         X = self.__prepare_data(X)
+        self.__logger.info('...reshaped X size: ' + str(X.shape))
         n = X.shape[2]
         pred = np.random.randint(low=self.min_class_value, high=self.max_class_value, size=n, dtype=int)
 
-        return pred
+        return pred[0]
 
 
 

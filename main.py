@@ -5,12 +5,25 @@ from image_classifier.dataset import mnist
 
 
 def main():
-    model = DigitClassifier(algorithm='rand')  
-    (trainX, trainy), (testX, testy) = mnist.load_data()
-    print(testX.shape)
+	# Choose algorithm
+    # algorithm = 'rand'
+    algorithm = 'cnn'
+    # algorithm = 'rf'
 
-    model.load('./')
-    print('prediction', model.predict(testX))
+    # Load model
+    model = DigitClassifier(algorithm=algorithm) 
+
+    # Load data
+    (trainX, trainy), (testX, testy) = mnist.load_data()
+    print(trainX.shape, trainy.shape)
+    print(testX.shape, testy.shape)
+
+    # Fit cnn model 
+    # model.fit(trainX, trainy)
+    # model.save(model_path='./models/cnn_model')
+
+    # Make a prediction for img with size (1, 28, 28), but every model reshapes image to individual size
+    print('Prediction for digit {}:'.format(testy[0]), model.predict(testX[:1, :, :]))
 
 
 if __name__ == "__main__":
