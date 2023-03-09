@@ -108,19 +108,3 @@ class RandomClassifier(DigitClassificationInterface):
 
         return pred[0]
 
-
-
-    @property
-    def model_details(self):
-        """
-        property model details
-        """
-        return super().model_details
-
-
-
-    @model_details.setter
-    def model_details(self, value):
-        super(RandomClassifier, type(self)). \
-            model_details.fset(self, value)
-

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Random model digit classification
+Cnn model digit classification
 """
 import logging
 import operator
@@ -61,9 +61,6 @@ class CnnClassifier(DigitClassificationInterface):
         self.__model = tf.keras.models.load_model(model_path)
         self.__logger.info(f'finish loading cnn classifier model')
 
-
-
-        self.__logger.info(f'finish loading classifier model from {str(model_path)}')
 
 
     def __prepare_data(self, X: np.array, y: np.array = None) -> np.array:
@@ -160,20 +157,3 @@ class CnnClassifier(DigitClassificationInterface):
         y_pred_classes = np.argmax(y_pred,axis = 1) 
 
         return y_pred_classes[0]
-
-
-
-    @property
-    def model_details(self):
-        """
-        property model details
-        """
-        return super().model_details
-
-
-
-    @model_details.setter
-    def model_details(self, value):
-        super(CnnClassifier, type(self)). \
-            model_details.fset(self, value)
-

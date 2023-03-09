@@ -46,16 +46,3 @@ class DigitClassificationInterface(ABC):
         """
         raise NotImplementedError
 
-    @property
-    def model_details(self):
-        """
-        :return:
-        """
-        return self.__model_details
-
-    @model_details.setter
-    def model_details(self, val):
-        if isinstance(val, dict):
-            self.__model_details = val
-        else:
-            raise TypeError(f'the `val` object must be dict, bytes or bytearray, not {type(val)}')

@@ -5,9 +5,9 @@ from image_classifier.dataset import mnist
 
 
 def main():
-	# Choose algorithm
-    # algorithm = 'rand'
-    algorithm = 'cnn'
+	# Choose an algorithm
+    algorithm = 'rand'
+    # algorithm = 'cnn'
     # algorithm = 'rf'
 
     # Load model
@@ -15,12 +15,12 @@ def main():
 
     # Load data
     (trainX, trainy), (testX, testy) = mnist.load_data()
-    print(trainX.shape, trainy.shape)
-    print(testX.shape, testy.shape)
+    # print(trainX.shape, trainy.shape)
+    # print(testX.shape, testy.shape)
 
-    # Fit cnn model 
+    # Fit rf model. Uncomment, please, if you wanna test RF model
     # model.fit(trainX, trainy)
-    # model.save(model_path='./models/cnn_model')
+    # model.save(model_path='./models/rf_model')
 
     # Make a prediction for img with size (1, 28, 28), but every model reshapes image to individual size
     print('Prediction for digit {}:'.format(testy[0]), model.predict(testX[:1, :, :]))
